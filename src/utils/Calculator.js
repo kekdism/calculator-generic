@@ -93,7 +93,7 @@ class Calculator {
             }
 
             this.#numberScreen = result;
-            this.screen.value = this.#numberScreen;
+            this.screen.value = this.#numberScreen.toLocaleString();
 
             this.#updateHistory();
           },
@@ -148,7 +148,7 @@ class Calculator {
       secondOperand: null,
     };
     this.#numberScreen = result;
-    this.screen.value = this.#numberScreen;
+    this.screen.value = this.#numberScreen.toLocaleString();
   }
 
   #equlity() {
@@ -179,7 +179,7 @@ class Calculator {
         return;
       }
       this.#numberScreen = Number(newScreen);
-      this.screen.value = this.#numberScreen;
+      this.screen.value = this.#numberScreen.toLocaleString();
     };
   }
 

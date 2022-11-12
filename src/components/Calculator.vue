@@ -38,10 +38,11 @@ export default {
         <div class="screen">{{ screen.value }}</div>
       </div>
       <div class="numpad">
-        <button type="button" class="button" v-for="(button, label) in buttonList" :key="label" @click="button.action"
-          :style="{ gridArea: label }">
-          {{ button.text }}
-        </button>
+        <div class="button-placer" v-for="(button, label) in buttonList" :key="label" :style="{ gridArea: label }">
+          <button type="button" class="button" @click="button.action">
+            {{ button.text }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -126,13 +127,29 @@ export default {
   grid-template-areas: "reset sqrt per div" "num7 num8 num9 mult" "num4 num5 num6 sub" "num1 num2 num3 add" "sign num0 delim equal";
 }
 
+.button-placer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .button {
+  height: 100%;
+  cursor: pointer;
+  display: block;
   padding: 0;
   font-size: 32px;
   font-family: inherit;
   color: inherit;
   border: 0;
+  border-radius: 50%;
   background-color: transparent;
+  aspect-ratio: 1 / 1;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 /*[ "C",
